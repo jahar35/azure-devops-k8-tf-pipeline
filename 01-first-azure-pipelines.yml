@@ -9,8 +9,12 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+  #Pipelines > stages >Jobs > Task (Steps)
+  Jobs:
+  - job: job1  
+
 steps:
-- script: echo Hello, world changed!
+- script: echo job 1 Hello, world changed!
   displayName: 'Run a one-line script'
 
 - script: |
@@ -18,3 +22,7 @@ steps:
     echo See https://aka.ms/yaml
     echo more information
   displayName: 'Run a multi-line script'
+  -job: job2
+steps: 
+- script: echo job2
+  displayName: 'Run a one liner script'
